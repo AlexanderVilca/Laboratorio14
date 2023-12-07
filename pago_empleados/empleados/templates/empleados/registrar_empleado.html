@@ -1,0 +1,20 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-header bg-primary">
+        <h1 style="text-align: center; color: azure;">Registrar Empleado</h1>
+      </div>
+      <div class="card-body">
+      <form method="post" action="{% url 'registrar_empleado' %}">
+        <div class="form-label">
+        {% csrf_token %}
+        {{ form.as_p }}
+        </div>
+        <button class="btn btn-primary" type="submit">Registrar Empleado</button>
+      </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="card">
+        <div class="card-title bg-primary">
+            <h1 style="color: azure; text-align: center;">Lista de Empleados</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Horas Trabajadas</th>
+                    <th>Pago</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for empleado in empleados %}
+                    <tr>
+                    <td>{{ empleado.id }}</td>
+                    <td>{{ empleado.nombre }}</td>
+                    <td>{{ empleado.categoria }}</td>
+                    <td>{{ empleado.horas_trabajadas }}</td>
+                    <td>{{ empleado.pago }}</td>
+                    </tr>
+                </tbody>
+                    {% endfor %}
+              </table>
+                <a href="{% url 'registrar_empleado' %}"> <button class="btn btn-primary"> Registrar un nuevo empleado </button></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
